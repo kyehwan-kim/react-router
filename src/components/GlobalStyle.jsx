@@ -11,6 +11,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'TheJamsil5Bold';
     padding-top: 1em;
     white-space: pre-wrap;
+    text-align: center;
   }
   
   ul, ol{
