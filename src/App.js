@@ -1,31 +1,27 @@
-import { Link, Route, Routes } from 'react-router-dom';
-import './App.css';
-import Board from './components/Board';
-import Profile from './components/Profile';
-import Header from './components/Header';
-import NotFound from './components/NotFound';
-import Home from './components/Home';
-import BoardDetail from './components/BoardDetail';
-import TestRedux from './components/TestRedux';
-import ListContainer from './components/ListContainer';
+import React from 'react';
+import Start from './pages/Start';
+import styled from 'styled-components';
+import GlobalStyle from './components/GlobalStyle';
+import { useSelector } from 'react-redux';
+import Mbti from './pages/Mbti';
+
+const Main = styled.main`
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 500px;
+  padding: 0 35px;
+  margin: auto;
+  text-align: center;
+`;
 
 function App() {
+  const page = useSelector((state) => state.mbti.page);
+
   return (
-    <div className="App">
-      <ListContainer />
-      {/* <TestRedux /> */}
-      {/* Header 코드 위치는 상단에 있어야 한다. */}
-      {/* <Header /> */}
-      {/* Routes 컴포넌트 내부에 Route 컴포넌트를 넣어주고 각각의 주소 값은 path 속성에, 호출 할 컴포넌트는 element 속성으로 불러 주면 된다. */}
-      {/* <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/test" element={<TestRedux />} />
-        <Route path="/board" element={<Board />} />
-        <Route path="/board/:boardID" element={<BoardDetail />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes> */}
-    </div>
+    <>
+      <GlobalStyle />
+      <Main>{page === 0 ? <Start /> : <Mbti />}</Main>
+    </>
   );
 }
 

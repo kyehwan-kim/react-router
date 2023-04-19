@@ -1,6 +1,6 @@
-const weight = 100;
+const weightState = 100;
 
-export default function weightReducer(state = weight, action) {
+export default function weight(state = weightState, action) {
   if (action.type === 'up') {
     const month = new Date().getMonth() + 1;
     return state + month;
