@@ -14,7 +14,7 @@ export default function TodoList() {
 
   return (
     <section>
-      <h1>할 일 목록</h1>
+      <h1>해야 할 일들</h1>
       <div>
         <input type="text" ref={inputRef} />
         <button
